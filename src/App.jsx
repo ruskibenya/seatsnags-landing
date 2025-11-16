@@ -479,11 +479,11 @@ export default function App() {
 
             <div className="flex flex-col items-center md:items-end gap-4">
               <a
-                href="mailto:info@seatsnags.com"
+                href="mailto:maurice@seatsnags.com"
                 className="text-slate-400 hover:text-blue-400 transition-colors text-sm flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
-                info@seatsnags.com
+                maurice@seatsnags.com
               </a>
 
               <div className="flex gap-4">
