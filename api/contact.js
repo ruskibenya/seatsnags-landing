@@ -23,8 +23,8 @@ export default async function handler(req, res) {
     });
 
     await transporter.sendMail({
-      from: '"SeatSnags Waitlist" <ben@seatsnags.com>',
-      to: "ben@seatsnags.com", // You can change to Maurice later
+      from: '"SeatSnags Waitlist" <notifications@seatsnags.com>',
+      to: "notifications@seatsnags.com",
       subject: "New SeatSnags Waitlist Signup",
       text: `From: ${name} <${email}>\n\nMessage:\n${message || "(none)"}`,
     });
