@@ -20,14 +20,30 @@ export default function App() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      setSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong sending your message. Please try again.");
+    }
   };
+
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
