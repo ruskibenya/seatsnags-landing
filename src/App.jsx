@@ -5,6 +5,8 @@ import { BidSetupScreen, BidStatusScreen, BidActivatedScreen } from './lib/phone
 import { useTweaks, TweaksPanel, TweakSection, TweakColor, TweakRadio, TweakSlider } from './lib/tweaks-panel.jsx';
 import logoGlyph from './assets/logo-glyph.svg';
 import mauriceImg from './assets/maurice.png';
+import benjaminImg from './assets/benjamin.jpg';
+import madelineImg from './assets/madeline.png';
 
 function useMedia(query) {
   const [match, setMatch] = useState(() => window.matchMedia(query).matches);
@@ -173,6 +175,48 @@ function Story() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 28, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
           <img src={mauriceImg} alt="Maurice" width={40} height={40} style={{ borderRadius: 999, objectFit: 'cover', display: 'block', border: '1px solid var(--border)' }}/>
           <span style={{ fontFamily: 'var(--font-ui)', fontSize: 15, fontWeight: 500, color: 'var(--fg-1)' }}>Maurice<span style={{ color: 'var(--fg-3)', fontWeight: 400 }}> · Founder</span></span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const TEAM = [
+  { name: 'Maurice', role: 'Business Guy', image: mauriceImg },
+  { name: 'Madeline', role: 'Technical Guy', image: madelineImg },
+  { name: 'Benjamin', role: 'The Glue', image: benjaminImg },
+];
+
+function Team() {
+  return (
+    <section style={{ padding: '40px 24px 64px' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        <div data-reveal style={{ maxWidth: 620, marginBottom: 40 }}>
+          <div style={{ ...eyebrow, marginBottom: 14 }}>Our team</div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: 1.08, letterSpacing: '-0.025em', color: 'var(--fg-1)', margin: 0 }}>
+            Built by fans, for fans.
+          </h2>
+        </div>
+        <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          {TEAM.map((member, i) => (
+            <div key={i} data-reveal style={{
+              '--reveal-delay': `${i * 80}ms`,
+              background: 'var(--bg-elev-1)', border: '1px solid var(--border)', borderRadius: 18,
+              overflow: 'hidden', boxShadow: 'var(--shadow-lift)',
+            }}>
+              {member.image ? (
+                <img src={member.image} alt={member.name} style={{ width: '100%', height: 280, objectFit: 'cover', display: 'block' }}/>
+              ) : (
+                <div style={{ width: '100%', height: 280, background: 'var(--bg-elev-2)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--fg-3)', fontFamily: 'var(--font-ui)', fontSize: 13 }}>
+                  Image coming soon
+                </div>
+              )}
+              <div style={{ padding: 24 }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 20, letterSpacing: '-0.01em', color: 'var(--fg-1)', marginBottom: 4 }}>{member.name}</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: 14, color: 'var(--fg-2)' }}>{member.role}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -349,6 +393,7 @@ export default function App() {
       <main>
         <Hero layout={t.heroLayout}/>
         <Story/>
+        <Team/>
         <HowItWorks/>
         <TrustStrip/>
         <Waitlist count={t.waitlistCount}/>
