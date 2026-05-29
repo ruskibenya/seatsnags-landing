@@ -210,8 +210,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 .phone-scroll { scrollbar-width: none; }
 
 @media (max-width: 860px) {
-  .hero-grid { --hero-cols: 1fr !important; }
-  .hero-grid > div:first-child { text-align: center; margin: 0 auto !important; }
+  .hero-grid { --hero-cols: 1fr; grid-template-columns: minmax(0, 1fr) !important; }
+  .hero-grid > div:first-child { text-align: center; margin: 0 auto !important; min-width: 0; }
+  .hero-grid > div:last-child { min-width: 0; }
 }
 @media (max-width: 760px) {
   .how-grid { grid-template-columns: 1fr !important; }

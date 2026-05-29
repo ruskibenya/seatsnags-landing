@@ -123,7 +123,7 @@ function Hero({ layout }) {
         gridTemplateColumns: 'var(--hero-cols, 1.05fr 1fr)',
       }} className="hero-grid">
         <div data-reveal style={{ maxWidth: 540 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 13px 6px 9px', borderRadius: 999, background: 'var(--primary-soft)', border: '1px solid rgba(31,122,94,0.22)', marginBottom: 22, whiteSpace: 'nowrap', maxWidth: '100%' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 13px 6px 9px', borderRadius: 999, background: 'var(--primary-soft)', border: '1px solid rgba(31,122,94,0.22)', marginBottom: 22, whiteSpace: 'nowrap', maxWidth: '100%', overflow: 'hidden' }}>
             <Pulse tone="snag" size={7}/>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: 12.5, fontWeight: 600, color: 'var(--primary-fg)', letterSpacing: '-0.005em' }}>Automated ticket bidding · Launching in NYC</span>
           </div>
