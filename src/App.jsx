@@ -457,11 +457,11 @@ export default function App() {
       <main>
         <Hero layout={t.heroLayout}/>
         <Story/>
-        <Team/>
         <HowItWorks/>
         <TrustStrip/>
-        <FAQ/>
         <Waitlist count={t.waitlistCount}/>
+        <Team/>
+        <FAQ/>
       </main>
       <Footer/>
 
