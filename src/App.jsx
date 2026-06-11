@@ -291,8 +291,16 @@ function TrustStrip() {
 }
 
 function Waitlist({ count }) {
-  const [email, setEmail] = useState('');
-  const [sent, setSent] = useState(false);
+  useEffect(() => {
+    const w = 'https://tally.so/widgets/embed.js';
+    if (!document.querySelector(`script[src="${w}"]`)) {
+      const s = document.createElement('script');
+      s.src = w;
+      s.async = true;
+      document.body.appendChild(s);
+    }
+  }, []);
+
   return (
     <section id="waitlist" style={{ padding: '24px 24px 72px' }}>
       <div data-reveal style={{
@@ -308,25 +316,8 @@ function Waitlist({ count }) {
           SeatSnags is launching in New York this summer. We&apos;re inviting a small group of beta testers to use the app before public launch — real events, real tickets, real bids.
         </p>
 
-        {/* TALLY FORM EMBED — replace this block with the Tally script tag once Maurice provides the form URL */}
-        <div className="tally-placeholder" style={{ maxWidth: 460, margin: '28px auto 0' }}>
-          {sent ? (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px', borderRadius: 12, background: 'var(--primary-soft)', border: '1px solid rgba(31,122,94,0.25)' }}>
-              <Icon name="check" size={18} color="var(--primary-fg)" stroke={2.5}/>
-              <span style={{ fontFamily: 'var(--font-ui)', fontSize: 15, fontWeight: 500, color: 'var(--primary-fg)' }}>You&apos;re on the list. We&apos;ll be in touch.</span>
-            </div>
-          ) : (
-            <form onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setSent(true); }} style={{ display: 'flex', gap: 10 }} className="waitlist-form">
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 10, padding: '0 14px', background: 'var(--bg-elev-2)', border: '1px solid var(--border-strong)', borderRadius: 12 }}>
-                <Icon name="mail" size={18} color="var(--fg-3)"/>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="you@email.com" required style={{
-                  flex: 1, border: 0, outline: 'none', background: 'transparent', padding: '15px 0',
-                  fontFamily: 'var(--font-ui)', fontSize: 15.5, color: 'var(--fg-1)', minWidth: 0,
-                }}/>
-              </div>
-              <Button kind="primary" size="lg">Join</Button>
-            </form>
-          )}
+        <div className="tally-embed" style={{ maxWidth: 460, margin: '28px auto 0' }}>
+          <iframe data-tally-src="https://tally.so/embed/A7yl0l?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="447" frameBorder="0" marginHeight="0" marginWidth="0" title="SeatSnags waiting list" style={{ borderRadius: '12px' }}/>
         </div>
 
         <p style={{ fontFamily: 'var(--font-ui)', fontSize: 13, color: 'var(--fg-3)', margin: '16px 0 0' }}>
