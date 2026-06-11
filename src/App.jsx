@@ -264,6 +264,21 @@ function HowItWorks() {
   );
 }
 
+const FAQ_ITEMS = [
+  { q: 'What is SeatSnags?', a: 'SeatSnags is an automated ticket purchasing agent. You set a maximum price, and we monitor the secondary market around the clock — automatically buying the moment matching tickets appear at or below your budget. No browsing, no refreshing, no missing out because you saw the alert too late.' },
+  { q: 'How is SeatSnags different from StubHub or SeatGeek?', a: 'Those platforms send you an alert when tickets drop to your price. You still have to act — and by the time you open the app, the tickets are usually gone. SeatSnags skips the alert entirely. We purchase automatically the instant a match appears, then notify you when it\'s done.' },
+  { q: 'How does it work?', a: 'Choose your event, select the sections you\'re open to, and enter your maximum total price. Our system monitors live listings every 12 seconds. The moment a match appears at or below your price, we purchase automatically on your behalf.' },
+  { q: 'Am I charged when I set a watch?', a: 'No. You\'re only charged if we successfully secure tickets. We may place a temporary hold to verify your payment method, but nothing is collected unless we deliver.' },
+  { q: 'Why do I need a credit card to set a watch?', a: 'When a match appears, we have seconds to act. Having your payment method ready means we can purchase immediately — without waiting for you to confirm and losing the listing.' },
+  { q: 'Will I always pay my maximum price?', a: 'No — that\'s your ceiling, not your price. If we find matching tickets for less, you pay the lower amount. You\'re never charged more than what the tickets actually cost.' },
+  { q: 'What happens when a match is found?', a: 'We secure the tickets, process your payment, and arrange delivery. You\'ll get a notification as soon as it\'s done.' },
+  { q: 'What if no matching tickets are found?', a: 'Your watch expires and you\'re charged nothing.' },
+  { q: 'Can I use SeatSnags for sold-out events?', a: 'Yes — and sold-out events are often where SeatSnags works best. We monitor resale listings continuously, so if tickets surface at your price at any point, we\'ll catch them.' },
+  { q: 'Can I cancel a watch?', a: 'Yes. You can cancel any active watch before tickets are secured, and you won\'t be charged.' },
+  { q: 'How will I receive my tickets?', a: 'Electronically, through whatever transfer platform the seller uses — typically Ticketmaster, AXS, or a similar system.' },
+  { q: 'When will my tickets arrive?', a: 'It depends on the event and seller. Some tickets arrive immediately; others closer to the event date. We\'ll keep you updated either way.' },
+];
+
 const TRUST = [
   { icon: 'shield', t: 'Licensed broker inventory only' },
   { icon: 'lock', t: 'Payments secured by Stripe' },
@@ -285,6 +300,64 @@ function TrustStrip() {
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: 13.5, fontWeight: 500, color: 'var(--fg-1)', lineHeight: 1.3 }}>{it.t}</span>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function FAQItem({ question, answer, isOpen, onToggle }) {
+  return (
+    <div style={{
+      background: 'var(--bg-elev-1)', border: '1px solid var(--border)', borderRadius: 14,
+      overflow: 'hidden', transition: 'border-color 240ms',
+      borderColor: isOpen ? 'var(--primary)' : 'var(--border)',
+    }}>
+      <button
+        onClick={onToggle}
+        style={{
+          width: '100%', padding: '18px 20px', background: 'transparent', border: 0,
+          cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          gap: 12, fontFamily: 'var(--font-ui)', fontSize: 15.5, fontWeight: 600,
+          color: 'var(--fg-1)', textAlign: 'left', transition: 'background 120ms',
+        }}
+        onMouseEnter={(e) => e.target.style.background = 'rgba(31,122,94,0.04)'}
+        onMouseLeave={(e) => e.target.style.background = 'transparent'}
+      >
+        {question}
+        <Icon name={isOpen ? 'arrowDown' : 'arrowR'} size={16} color="var(--fg-3)" stroke={2.5} style={{ flexShrink: 0, transition: 'transform 240ms', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}/>
+      </button>
+      {isOpen && (
+        <div style={{ padding: '0 20px 18px', fontFamily: 'var(--font-ui)', fontSize: 15, lineHeight: 1.6, color: 'var(--fg-2)', borderTop: '1px solid var(--border)', background: 'rgba(31,122,94,0.02)' }}>
+          {answer}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+  return (
+    <section style={{ padding: '40px 24px 64px' }}>
+      <div style={{ maxWidth: 860, margin: '0 auto' }}>
+        <div data-reveal style={{ marginBottom: 40 }}>
+          <div style={{ ...eyebrow, marginBottom: 14 }}>Questions?</div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: 1.08, letterSpacing: '-0.025em', color: 'var(--fg-1)', margin: 0 }}>
+            Frequently asked questions.
+          </h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {FAQ_ITEMS.map((item, i) => (
+            <div key={i} data-reveal style={{ '--reveal-delay': `${i * 40}ms` }}>
+              <FAQItem
+                question={item.q}
+                answer={item.a}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -387,6 +460,7 @@ export default function App() {
         <Team/>
         <HowItWorks/>
         <TrustStrip/>
+        <FAQ/>
         <Waitlist count={t.waitlistCount}/>
       </main>
       <Footer/>
