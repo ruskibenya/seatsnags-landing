@@ -415,7 +415,7 @@ function Waitlist({ count }) {
 }
 
 function Footer() {
-  const socials = [['x', '#'], ['instagram', '#'], ['tiktok', '#']];
+  const socials = [['instagram', 'https://www.instagram.com/seatsnags/'], ['linkedin', 'https://www.linkedin.com/company/seatsnags/'], ['facebook', 'https://www.facebook.com/profile.php?id=61590691582009']];
   const links = [['Privacy Policy', '#'], ['Terms', '#']];
   return (
     <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}>
