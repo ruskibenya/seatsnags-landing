@@ -426,6 +426,8 @@ function Footer() {
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 22, rowGap: 12 }}>
           <a href="mailto:support@seatsnags.com" style={{ fontFamily: 'var(--font-ui)', fontSize: 13.5, color: 'var(--fg-2)', textDecoration: 'none' }} className="foot-link">support@seatsnags.com</a>
+          {/* Single feedback intake for the beta (INT-022) — same Notion form the app links to. */}
+          <a href="https://dot-second-a10.notion.site/39f7ba04f36f80bf808be73a0550ef25?pvs=105" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-ui)', fontSize: 13.5, color: 'var(--fg-2)', textDecoration: 'none' }} className="foot-link">Send feedback</a>
           {links.map(([l, h]) => (
             <a key={l} href={h} style={{ fontFamily: 'var(--font-ui)', fontSize: 13.5, color: 'var(--fg-2)', textDecoration: 'none' }} className="foot-link">{l}</a>
           ))}
