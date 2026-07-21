@@ -108,8 +108,8 @@ function Nav() {
     }}>
       <div style={{ maxWidth: 1180, margin: '0 auto', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="#top" style={{ textDecoration: 'none' }}><WORDMARK/></a>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
-          <a href="https://app.seatsnags.com" style={{
+        <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
+          <a href="https://app.seatsnags.com" className="header-login" style={{
             fontFamily: 'var(--font-ui)', fontSize: 14.5, fontWeight: 600,
             color: 'var(--primary-fg)', textDecoration: 'none', letterSpacing: '-0.005em',
           }}>Log in</a>
