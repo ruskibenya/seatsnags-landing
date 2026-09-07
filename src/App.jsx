@@ -31,7 +31,9 @@ function useReveal() {
 }
 
 const GREENS = {
-  Evergreen: { '--primary': '#1F7A5E', '--primary-fg': '#105A45', '--primary-soft': '#ECF5F1', '--on-primary': '#FFFFFF' },
+  // These *define* the tokens rather than consume them, so they carry literal
+  // values by necessity. Box Office greens; keep in step with globals.css.
+  Evergreen: { '--primary': '#166B45', '--primary-fg': '#0E4C31', '--primary-soft': '#E7EFEA', '--on-primary': '#FFFFFF' },
   Forest:    { '--primary': '#3B6D11', '--primary-fg': '#27500A', '--primary-soft': '#EAF3DE', '--on-primary': '#FFFFFF' },
 };
 
@@ -63,7 +65,7 @@ function PhoneStack({ layout }) {
     return (
       <div className="phone-scroll" style={{ display: 'flex', gap: 16, overflowX: 'auto', padding: '8px 24px 20px', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
         {[BidSetupScreen, BidStatusScreen, BidActivatedScreen].map((S, i) => (
-          <div key={i} style={{ scrollSnapAlign: 'center', filter: 'drop-shadow(0 24px 40px rgba(11,22,32,0.16))' }}>
+          <div key={i} style={{ scrollSnapAlign: 'center', filter: 'drop-shadow(0 24px 40px color-mix(in srgb, var(--ink-950) 16%, transparent))' }}>
             <Phone scale={0.6}><S/></Phone>
           </div>
         ))}
@@ -80,7 +82,7 @@ function PhoneStack({ layout }) {
           marginTop: stagger ? i * 56 : 0,
           marginLeft: i === 0 ? 0 : (stagger ? -38 : 18),
           zIndex: i,
-          filter: `drop-shadow(0 30px 50px rgba(11,22,32,${0.10 + i * 0.04}))`,
+          filter: `drop-shadow(0 30px 50px color-mix(in srgb, var(--ink-950) ${(0.10 + i * 0.04) * 100}%, transparent))`,
           transition: 'margin 360ms var(--ease-ios)',
         }}>
           <Phone scale={s}><S/></Phone>
@@ -100,7 +102,7 @@ function Nav() {
   return (
     <header style={{
       position: 'sticky', top: 0, zIndex: 40,
-      background: scrolled ? 'rgba(250,248,244,0.82)' : 'rgba(250,248,244,0)',
+      background: scrolled ? 'color-mix(in srgb, var(--paper-50) 82%, transparent)' : 'color-mix(in srgb, var(--paper-50) 0%, transparent)',
       backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'none',
       borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
@@ -129,7 +131,7 @@ function Hero({ layout }) {
         gridTemplateColumns: 'var(--hero-cols, 1.05fr 1fr)',
       }} className="hero-grid">
         <div data-reveal style={{ maxWidth: 540 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 13px 6px 9px', borderRadius: 999, background: 'var(--primary-soft)', border: '1px solid rgba(31,122,94,0.22)', marginBottom: 22, whiteSpace: 'nowrap', maxWidth: '100%', overflow: 'hidden' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 13px 6px 9px', borderRadius: 999, background: 'var(--primary-soft)', border: '1px solid color-mix(in srgb, var(--primary) 22%, transparent)', marginBottom: 22, whiteSpace: 'nowrap', maxWidth: '100%', overflow: 'hidden' }}>
             <Pulse tone="snag" size={7}/>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: 12.5, fontWeight: 600, color: 'var(--primary-fg)', letterSpacing: '-0.005em' }}>Automated ticket bidding · Launching in NYC</span>
           </div>
@@ -302,7 +304,7 @@ function TrustStrip() {
   return (
     <section style={{ padding: '0 24px 56px' }}>
       <div data-reveal style={{
-        maxWidth: 1100, margin: '0 auto', background: 'var(--bg-tinted)', border: '1px solid rgba(31,122,94,0.16)',
+        maxWidth: 1100, margin: '0 auto', background: 'var(--bg-tinted)', border: '1px solid color-mix(in srgb, var(--primary) 16%, transparent)',
         borderRadius: 18, padding: '20px 24px', display: 'grid', gap: 16,
         gridTemplateColumns: 'repeat(4, 1fr)',
       }} className="trust-grid">
@@ -332,14 +334,14 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
           gap: 12, fontFamily: 'var(--font-ui)', fontSize: 15.5, fontWeight: 600,
           color: 'var(--fg-1)', textAlign: 'left', transition: 'background 120ms',
         }}
-        onMouseEnter={(e) => e.target.style.background = 'rgba(31,122,94,0.04)'}
+        onMouseEnter={(e) => e.target.style.background = 'color-mix(in srgb, var(--primary) 4%, transparent)'}
         onMouseLeave={(e) => e.target.style.background = 'transparent'}
       >
         {question}
         <Icon name={isOpen ? 'arrowDown' : 'arrowR'} size={16} color="var(--fg-3)" stroke={2.5} style={{ flexShrink: 0, transition: 'transform 240ms', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}/>
       </button>
       {isOpen && (
-        <div style={{ padding: '0 20px 18px', fontFamily: 'var(--font-ui)', fontSize: 15, lineHeight: 1.6, color: 'var(--fg-2)', borderTop: '1px solid var(--border)', background: 'rgba(31,122,94,0.02)' }}>
+        <div style={{ padding: '0 20px 18px', fontFamily: 'var(--font-ui)', fontSize: 15, lineHeight: 1.6, color: 'var(--fg-2)', borderTop: '1px solid var(--border)', background: 'color-mix(in srgb, var(--primary) 2%, transparent)' }}>
           {answer}
         </div>
       )}

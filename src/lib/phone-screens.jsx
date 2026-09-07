@@ -7,7 +7,7 @@ function ScreenShell({ children, header }) {
     <div style={{ minHeight: '100%', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <div style={{
         paddingTop: 54, position: 'sticky', top: 0, zIndex: 5,
-        background: 'rgba(250, 248, 244, 0.86)',
+        background: 'color-mix(in srgb, var(--paper-50) 86%, transparent)',
         backdropFilter: 'blur(24px) saturate(180%)',
         WebkitBackdropFilter: 'blur(24px) saturate(180%)',
         borderBottom: '1px solid var(--border)',
@@ -29,7 +29,7 @@ const EVENT = {
   title: 'Knicks vs. Celtics',
   venue: 'Madison Square Garden',
   date: 'Fri · Mar 15 · 7:30 PM',
-  img: 'linear-gradient(to top, rgba(11,22,32,0.65), rgba(11,22,32,0.05) 70%), radial-gradient(ellipse at 30% 30%, #C44A2E, transparent 60%), radial-gradient(ellipse at 80% 70%, #2A4A6E, transparent 55%), linear-gradient(135deg, #5B3520, #1F2840)',
+  img: 'linear-gradient(to top, color-mix(in srgb, var(--ink-950) 65%, transparent), color-mix(in srgb, var(--ink-950) 5%, transparent) 70%), radial-gradient(ellipse at 30% 30%, #C44A2E, transparent 60%), radial-gradient(ellipse at 80% 70%, #2A4A6E, transparent 55%), linear-gradient(135deg, #5B3520, #1F2840)',
 };
 
 const eyebrow = { fontFamily: 'var(--font-ui)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--fg-3)' };
@@ -128,7 +128,7 @@ export function BidStatusScreen() {
   return (
     <ScreenShell header="Bid status">
       <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ padding: 16, borderRadius: 16, background: 'linear-gradient(180deg, rgba(180,58,63,0.06), transparent 60%), var(--bg-elev-1)', border: '1px solid var(--border)', boxShadow: 'inset 0 0 0 1px rgba(180,58,63,0.18)' }}>
+        <div style={{ padding: 16, borderRadius: 16, background: 'linear-gradient(180deg, color-mix(in srgb, var(--live) 6%, transparent), transparent 60%), var(--bg-elev-1)', border: '1px solid var(--border)', boxShadow: 'inset 0 0 0 1px color-mix(in srgb, var(--live) 18%, transparent)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
             <Badge tone="live" pulse>BID LIVE</Badge>
             <div style={{ textAlign: 'right' }}>
@@ -139,7 +139,7 @@ export function BidStatusScreen() {
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 19, letterSpacing: '-0.01em', color: 'var(--fg-1)' }}>{EVENT.title}</div>
           <div style={{ fontFamily: 'var(--font-ui)', fontSize: 13, color: 'var(--fg-3)', marginTop: 2 }}>2 seats · {EVENT.venue}</div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 16px', borderRadius: 14, background: 'var(--primary-soft)', border: '1px solid rgba(31,122,94,0.25)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 16px', borderRadius: 14, background: 'var(--primary-soft)', border: '1px solid color-mix(in srgb, var(--primary) 25%, transparent)' }}>
           <Pulse tone="snag" size={10}/>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--font-ui)', fontWeight: 600, fontSize: 14, color: 'var(--primary-fg)' }}>Searching for tickets…</div>
@@ -149,7 +149,7 @@ export function BidStatusScreen() {
         </div>
         <div style={{ padding: '16px 16px 8px', borderRadius: 16, background: 'var(--bg-elev-1)', border: '1px solid var(--border)' }}>
           <div style={{ ...eyebrow, marginBottom: 16 }}>Activity</div>
-          <TimelineItem pulse iconBg="rgba(180,58,63,0.12)" title="Checked 38 listings" sub="Best match $540 — above your max" time="12s"/>
+          <TimelineItem pulse iconBg="color-mix(in srgb, var(--live) 12%, transparent)" title="Checked 38 listings" sub="Best match $540 — above your max" time="12s"/>
           <TimelineItem icon="activity" iconBg="var(--bg-elev-3)" iconColor="var(--fg-2)" title="4 new listings posted" sub="Now watching 4 listings" time="8m"/>
           <TimelineItem icon="check" iconBg="var(--primary-soft)" iconColor="var(--primary)" title="Bid activated · $500 max" sub="We'll watch the market for you" time="2h" last/>
         </div>

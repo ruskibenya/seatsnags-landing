@@ -74,10 +74,10 @@ export function Badge({ tone = 'neutral', children, pulse }) {
   const tones = {
     snag:    { background: 'var(--primary)', color: 'var(--on-primary)' },
     amber:   { background: 'var(--gold-50)', color: 'var(--gold-700)', border: '1px solid var(--gold-300)' },
-    live:    { background: 'rgba(180,58,63,0.12)', color: 'var(--live)', border: '1px solid rgba(180,58,63,0.35)' },
-    trust:   { background: 'rgba(47,83,128,0.12)', color: 'var(--trust)', border: '1px solid rgba(47,83,128,0.35)' },
+    live:    { background: 'color-mix(in srgb, var(--live) 12%, transparent)', color: 'var(--live)', border: '1px solid color-mix(in srgb, var(--live) 35%, transparent)' },
+    trust:   { background: 'color-mix(in srgb, var(--trust) 12%, transparent)', color: 'var(--trust)', border: '1px solid color-mix(in srgb, var(--trust) 35%, transparent)' },
     neutral: { background: 'var(--bg-elev-3)', color: 'var(--fg-2)' },
-    snagSubtle: { background: 'rgba(31,122,94,0.12)', color: 'var(--primary-fg)', border: '1px solid rgba(31,122,94,0.3)' },
+    snagSubtle: { background: 'color-mix(in srgb, var(--primary) 12%, transparent)', color: 'var(--primary-fg)', border: '1px solid color-mix(in srgb, var(--primary) 30%, transparent)' },
   };
   return (
     <span style={{
