@@ -1,56 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,500;12..96,75..100,600;12..96,75..100,700;12..96,75..100,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap');
 
-/* =================================================================== */
-/* RAW TOKENS                                                           */
-/* =================================================================== */
-
+/* ============================================================ */
+/* 1. RAW TOKENS                                                 */
+/* ============================================================ */
+/* Box Office (v4). Ink is neutral black, not blue-black: the ground is bone
+   white and a cool ink reads as a second hue against it. Green is the one
+   brand ink; gold, claret and steel are signals, not decoration. */
 :root {
-  --ink-950: #0B1620;
-  --ink-900: #11202E;
-  --ink-800: #1B2D40;
-  --ink-700: #2A4055;
-  --ink-600: #3D5670;
-  --ink-500: #566E89;
-  --ink-400: #7388A1;
-  --ink-300: #94A5BB;
-  --ink-200: #B8C5D4;
-  --ink-100: #D6DDE6;
-  --ink-50:  #ECF0F4;
+  --ink-950: #141414;
+  --ink-900: #1E1E1E;
+  --ink-800: #2A2A2A;
+  --ink-700: #3A3A3A;
+  --ink-600: #4A4A4A;
+  --ink-500: #6B6B6B;
+  --ink-400: #858585;
+  --ink-300: #A3A3A3;
+  --ink-200: #C9C9C9;
+  --ink-100: #DCDCDC;
+  --ink-50:  #EBEBEB;
 
   --paper-0:   #FFFFFF;
-  --paper-50:  #FAF8F4;
-  --paper-100: #F4F1EA;
-  --paper-200: #E9E4D8;
-  --paper-300: #D6CFC0;
-  --paper-400: #B8AE9B;
+  --paper-50:  #F6F4EF;
+  --paper-100: #EEEBE4;
+  --paper-200: #E2DED5;
+  --paper-300: #CFC9BD;
+  --paper-400: #A8A08F;
 
-  --green-50:  #ECF5F1;
-  --green-100: #D2E8DD;
-  --green-300: #6FB89A;
-  --green-500: #1F7A5E;
-  --green-700: #105A45;
-  --green-900: #082E22;
+  --green-50:  #E7EFEA;
+  --green-100: #C6DCCF;
+  --green-300: #5FAF82;
+  --green-500: #166B45;
+  --green-700: #0E4C31;
+  --green-900: #072B1C;
 
-  --gold-50:  #FCF6E6;
-  --gold-100: #F5E6B9;
-  --gold-300: #DDB76A;
-  --gold-500: #B8862B;
-  --gold-700: #8C6018;
+  --gold-50:  #F6EED6;
+  --gold-100: #EEDDA5;
+  --gold-300: #D3AE4E;
+  --gold-500: #A57D1E;
+  --gold-700: #7B5A12;
 
-  --claret-50:  #FBEAEB;
-  --claret-500: #B43A3F;
-  --claret-700: #8A2528;
+  --claret-50:  #F5E3E0;
+  --claret-300: #D97A72;
+  --claret-500: #A8322B;
+  --claret-700: #7E211C;
 
-  --steel-50:  #EAEFF6;
-  --steel-500: #2F5380;
-  --steel-700: #1F3A5E;
+  --steel-50:  #E4E9EE;
+  --steel-300: #7F9DB9;
+  --steel-500: #2E4A6B;
+  --steel-700: #1F3550;
 }
 
-/* =================================================================== */
-/* SEMANTIC TOKENS — LIGHT MODE                                         */
-/* =================================================================== */
-
+/* ============================================================ */
+/* 2. SEMANTIC TOKENS — LIGHT MODE                               */
+/* ============================================================ */
 :root,
 :root[data-theme='light'] {
   --bg:           var(--paper-50);
@@ -58,24 +61,25 @@
   --bg-elev-2:    var(--paper-0);
   --bg-elev-3:    var(--paper-100);
   --bg-tinted:    var(--green-50);
-  --bg-scrim:     rgba(11, 22, 32, 0.5);
+  --bg-scrim:     rgba(20, 20, 20, 0.55);
 
   --fg-1:         var(--ink-950);
   --fg-2:         var(--ink-600);
   --fg-3:         var(--ink-500);
   --fg-4:         var(--ink-300);
-  --fg-on-green:  #FFFFFF;
+  --fg-on-green:  var(--paper-0);
   --fg-on-gold:   var(--ink-950);
-  --fg-on-claret: #FFFFFF;
-  --fg-on-steel:  #FFFFFF;
+  --fg-on-claret: var(--paper-0);
+  --fg-on-steel:  var(--paper-0);
 
-  --border:       var(--paper-200);
-  --border-strong:var(--paper-300);
-  --hairline:     transparent;
+  /* Borders carry the separation now that shadows are nearly gone, so the
+     strong step is full ink rather than a darker paper. */
+  --border:        #E3E1DC;
+  --border-strong: var(--ink-950);
 
   --primary:      var(--green-500);
   --primary-fg:   var(--green-700);
-  --on-primary:   #ffffff;
+  --on-primary:   var(--paper-0);
   --primary-soft: var(--green-50);
   --gold:         var(--gold-500);
   --gold-fg:      var(--gold-700);
@@ -87,12 +91,16 @@
   --trust-fg:     var(--steel-700);
   --trust-soft:   var(--steel-50);
 
-  --shadow-lift:  0 1px 2px rgba(11,22,32,0.06);
-  --shadow-card:  0 1px 2px rgba(11,22,32,0.05), 0 8px 24px rgba(11,22,32,0.06);
-  --shadow-sheet: 0 -2px 24px rgba(11,22,32,0.12), 0 -8px 64px rgba(11,22,32,0.08);
-  --shadow-pop:   0 12px 32px rgba(11,22,32,0.16), 0 2px 6px rgba(11,22,32,0.08);
-  --glow-primary: 0 0 0 4px rgba(31, 122, 94, 0.18);
-  --glow-live:    0 0 0 4px rgba(180, 58, 63, 0.18);
+  /* A card is a hairline plus barely any lift. The old four-tier drop shadow
+     is what read as "made quickly in a design tool"; separation is the rule
+     and the perforation now. */
+  --shadow-lift:  0 1px 2px rgba(20,20,20,.06);
+  --shadow-card:  0 0 0 1px var(--border), 0 1px 2px rgba(20,20,20,.04), 0 8px 24px rgba(20,20,20,.06);
+  --shadow-sheet: 0 -2px 24px rgba(20,20,20,.12), 0 -8px 64px rgba(20,20,20,.08);
+  --shadow-pop:   0 12px 32px rgba(20,20,20,.16), 0 2px 6px rgba(20,20,20,.08);
+  /* Focus is two rings — paper then ink — so it reads on any ground. */
+  --glow-primary: 0 0 0 3px var(--paper-0), 0 0 0 5px var(--primary);
+  --glow-live:    0 0 0 3px var(--paper-0), 0 0 0 5px var(--live);
 }
 
 :root[data-theme='dark'] {
@@ -100,63 +108,99 @@
   --bg-elev-1:    var(--ink-900);
   --bg-elev-2:    var(--ink-800);
   --bg-elev-3:    var(--ink-700);
-  --bg-tinted:    rgba(31,122,94,0.10);
-  --bg-scrim:     rgba(11, 22, 32, 0.6);
+  --bg-tinted:    rgba(95,175,130,.12);
+  --bg-scrim:     rgba(0, 0, 0, .65);
 
-  --fg-1:         #F4F6FA;
+  --fg-1:         var(--paper-50);
   --fg-2:         var(--ink-200);
   --fg-3:         var(--ink-300);
-  --fg-4:         var(--ink-400);
-  --fg-on-green:  #FFFFFF;
+  --fg-4:         var(--ink-500);
+  /* On dark, the signal colours are the light ramp steps, so ink reads on top
+     of them rather than paper — the inverse of the light theme. */
+  --fg-on-green:  var(--ink-950);
   --fg-on-gold:   var(--ink-950);
-  --fg-on-claret: #FFFFFF;
-  --fg-on-steel:  #FFFFFF;
+  --fg-on-claret: var(--ink-950);
+  --fg-on-steel:  var(--ink-950);
 
-  --border:       rgba(255,255,255,0.08);
-  --border-strong:rgba(255,255,255,0.14);
-  --hairline:     rgba(255,255,255,0.04);
+  /* A solid step, not a translucent white: the border has to survive being
+     drawn over three different elevations. */
+  --border:        var(--ink-700);
+  --border-strong: var(--paper-50);
 
   --primary:      var(--green-300);
   --primary-fg:   var(--green-300);
-  --primary-soft: rgba(31, 122, 94, 0.16);
+  --on-primary:   var(--ink-950);
+  --primary-soft: rgba(95,175,130,.16);
   --gold:         var(--gold-300);
   --gold-fg:      var(--gold-300);
-  --gold-soft:    rgba(184,134,43,0.16);
-  --live:         #E27A7E;
-  --live-fg:      #E27A7E;
-  --live-soft:    rgba(229,72,77,0.16);
-  --trust:        #7FA3D4;
-  --trust-fg:     #7FA3D4;
-  --trust-soft:   rgba(79,137,242,0.16);
+  --gold-soft:    rgba(211,174,78,.16);
+  --live:         var(--claret-300);
+  --live-fg:      var(--claret-300);
+  --live-soft:    rgba(217,122,114,.16);
+  --trust:        var(--steel-300);
+  --trust-fg:     var(--steel-300);
+  --trust-soft:   rgba(127,157,185,.16);
 
-  --shadow-lift:  0 1px 2px rgba(0,0,0,0.4);
-  --shadow-card:  0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
-  --shadow-sheet: 0 -2px 24px rgba(0,0,0,0.4), 0 -8px 64px rgba(0,0,0,0.3);
-  --shadow-pop:   0 12px 32px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3);
-  --glow-primary: 0 0 0 4px rgba(111,184,154,0.22);
-  --glow-live:    0 0 0 4px rgba(229,72,77,0.22);
+  --shadow-lift:  0 1px 2px rgba(0,0,0,.4);
+  --shadow-card:  0 0 0 1px var(--border), 0 8px 24px rgba(0,0,0,.4);
+  --shadow-sheet: 0 -2px 24px rgba(0,0,0,.5);
+  --shadow-pop:   0 12px 32px rgba(0,0,0,.6);
+  --glow-primary: 0 0 0 3px var(--ink-950), 0 0 0 5px var(--primary);
+  --glow-live:    0 0 0 3px var(--ink-950), 0 0 0 5px var(--live);
 }
 
-/* =================================================================== */
-/* TYPE TOKENS                                                          */
-/* =================================================================== */
-
+/* ============================================================ */
+/* 3. TYPE + SPACING TOKENS                                      */
+/* ============================================================ */
 :root {
-  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Oswald is the box-office face: condensed, uppercase, built for a marquee.
+     The narrow-grotesque fallbacks matter because the display face carries
+     the brand and a wide substitute reads as a different product. */
+  --font-display: 'Oswald', 'Alternate Gothic', 'Arial Narrow', ui-sans-serif, sans-serif;
   --font-ui:      'Geist', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
   --font-mono:    'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --t-display-2xl: 4rem;
+  --t-display-xl:  3rem;
+  --t-display-lg:  2.25rem;
+  --t-display-md:  1.625rem;
+  --t-display-sm:  1.25rem;
+  --t-body-lg:     1.0625rem;
+  --t-body:        0.9375rem;
+  --t-body-sm:     0.8125rem;
+  --t-eyebrow:     0.6875rem;
+
+  --lh-tight: 0.95; --lh-snug: 1.1; --lh-normal: 1.4; --lh-relaxed: 1.55;
+  --tr-tight: -0.02em; --tr-snug: -0.005em; --tr-normal: 0;
+  --tr-wide: 0.04em; --tr-eyebrow: 0.1em;
+  --w-regular: 400; --w-medium: 500; --w-semibold: 600; --w-bold: 700;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px;
+  --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-14: 56px; --sp-20: 80px;
+
+  /* xs: price object, badges · sm: buttons, controls · md: cards, rows
+     lg: sheets · xl: modal sheets · full: chips */
+  --r-xs: 4px; --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px;
+  --r-full: 999px;
+
+  /* How surfaces separate now. The perforation is the ticket-stub tear
+     between a card's body and its money; the print minimum is what survives
+     the physical run. */
+  --rule:        1px solid var(--border);
+  --rule-strong: 1px solid var(--border-strong);
+  --perf:        2px dashed var(--ink-200);
+  --print-rule-min: 2pt;
+
+  --tab-bar-h:           84px;
+  --top-nav-h-collapsed: 44px;
+  --top-nav-h-expanded:  96px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top:    env(safe-area-inset-top, 0px);
 
   --ease-ios:    cubic-bezier(0.32, 0.72, 0, 1);
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* backwards-compat aliases */
-  --snag-500: var(--green-500); --snag-300: var(--green-300); --snag-700: var(--green-700);
-  --snag: var(--primary); --snag-fg: var(--primary-fg);
-  --amber-500: var(--gold-500); --amber-300: var(--gold-300); --amber-700: var(--gold-700);
-  --amber: var(--gold); --amber-fg: var(--gold-fg);
-  --live-500: var(--live);
-  --trust-500: var(--trust);
+  --d-fast: 120ms; --d-med: 240ms; --d-slow: 360ms;
 }
 
 /* =================================================================== */
@@ -181,14 +225,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 /* KEYFRAMES                                                            */
 /* =================================================================== */
 
-@keyframes snag-pulse {
-  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(31,122,94,0.55); }
-  50%      { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(31,122,94,0); }
-}
-@keyframes live-pulse {
-  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(180,58,63,0.55); }
-  50%      { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(180,58,63,0); }
-}
 
 /* =================================================================== */
 /* LAYOUT HELPERS + INTERACTIONS                                        */
