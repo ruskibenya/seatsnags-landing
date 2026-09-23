@@ -14,11 +14,11 @@ export function WhyWeBuiltThis() {
           <div className="story-body">
             <p>
               My nephew spent days refreshing ticket prices, hoping they&apos;d finally come down.
-              But the game was starting soon and tickets were still above mom&apos;s max price.
+              But the game was starting soon and tickets were still above his mom&apos;s max price.
               So they headed to the fan zone.
             </p>
             <p>
-              Nephew didn&apos;t give up. Even on the subway to the watch party, he was glued to his
+              My nephew didn&apos;t give up. Even on the subway to the watch party, he was glued to his
               phone, hoping for a miracle.
             </p>
             <p>
@@ -26,7 +26,7 @@ export function WhyWeBuiltThis() {
               Bar stools in the nosebleeds.
             </p>
             <p>
-              But it didn&apos;t matter. He was at the Knicks Finals game. A memory he&apos;ll never forget.
+              But it didn&apos;t matter. They were at the Knicks Finals game. A memory they&apos;ll never forget.
             </p>
             <p>
               Buying a ticket shouldn&apos;t take days of refreshing, second-guessing, and
