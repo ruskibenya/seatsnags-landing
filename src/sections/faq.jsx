@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Section } from '../lib/ui.jsx';
 
 const FAQ_ITEMS = [
-  { q: 'What is SeatSnags?', a: 'SeatSnags is an automated ticket purchasing agent. You set a maximum price, and we monitor the secondary market around the clock — automatically buying the moment matching tickets appear at or below your budget. No browsing, no refreshing, no missing out because you saw the alert too late.' },
-  { q: 'How is SeatSnags different from StubHub or SeatGeek?', a: 'Those platforms send you an alert when tickets drop to your price. You still have to act — and by the time you open the app, the tickets are usually gone. SeatSnags skips the alert entirely. We purchase automatically the instant a match appears, then notify you when it\'s done.' },
-  { q: 'How does it work?', a: 'Choose your event, select the sections you\'re open to, and enter your maximum price per ticket. Our system monitors live listings continuously. The moment a match appears at or below your price, we purchase automatically on your behalf.' },
+  { q: 'What is SeatSnags?', a: 'SeatSnags gets you tickets at a price you set. Pick an event and the sections you\'d sit in, and set the most you\'d pay, fees included. We watch the resale market for you, and the moment tickets fit your max, we buy them and let you know. No refreshing, and nothing to do when the price finally drops.' },
+  { q: 'How is SeatSnags different from other ticket sites?', a: 'Most ticket sites can alert you when a price drops, but you still have to see the alert and buy before someone else does. SeatSnags skips that step. When tickets fit your max, we buy them, then tell you it\'s done.' },
+  { q: 'How does it work?', a: 'Choose your event, the sections you\'re open to and the most you\'d pay per ticket. We keep watching listings, and the moment a match appears at or below your max, we buy the tickets.' },
   { q: 'Am I charged when I set a bid?', a: 'No. When your bid goes live we place a hold on your card for your max, and you\'re only actually charged if we snag. If your bid expires or you cancel, the hold is released.' },
-  { q: 'Why do I need a credit card to set a bid?', a: 'When a match appears, we have seconds to act. Having your payment method ready means we can purchase immediately — without waiting for you to confirm and losing the listing.' },
-  { q: 'Will I always pay my maximum price?', a: 'No — that\'s your ceiling, not your price. If we find matching tickets for less, you pay a lower amount.' },
+  { q: 'Why do I need a credit card to set a bid?', a: 'Good listings go fast. Having your card on file means we can buy the moment a match appears, instead of asking you to confirm and losing the tickets while you do.' },
+  { q: 'Will I always pay my maximum price?', a: 'No. Your max is a ceiling, not a price. When tickets come in under it, you\'re often charged less.' },
   { q: 'What happens when a match is found?', a: 'We secure the tickets, process your payment, and arrange delivery. You\'ll get a notification as soon as it\'s done.' },
   { q: 'What if no matching tickets are found?', a: 'Your bid expires and you\'re charged nothing.' },
   { q: 'Can I use SeatSnags for sold-out events?', a: 'Yes — and sold-out events are often where SeatSnags works best. We monitor resale listings continuously, so if tickets surface at your price at any point, we\'ll catch them.' },
@@ -17,7 +17,7 @@ const FAQ_ITEMS = [
   { q: 'Are there any hidden fees?', a: 'No. Your max is all-in, fees included. The number you set is the most you\'ll ever pay, and nothing gets added at checkout.' },
   { q: 'Can I pick my exact seats?', a: 'You pick the sections you\'re open to and how many seats you need together. We grab the best match at or under your max: your full quantity, seated together, in your chosen sections.' },
   { q: 'Are the tickets legitimate?', a: 'Yes. Every ticket comes from licensed professional brokers, the same inventory network that supplies major marketplaces like StubHub, Vivid Seats, and SeatGeek. And every order is backed by our Buyer Guarantee.' },
-  { q: 'What happens if my event is canceled or postponed?', a: 'If it\'s postponed, your tickets stay valid for the new date. If it\'s canceled, we pass along the refund or replacement our ticketing partner provides.' },
+  { q: 'What happens if my event is canceled or postponed?', a: 'If it\'s postponed, your tickets usually stay valid for the new date. If it\'s canceled, we pass along the refund or replacement our ticketing partner provides.' },
   { q: 'How will I receive my tickets?', a: 'Electronically, through whatever transfer platform the seller uses — typically Ticketmaster, AXS, or a similar system.' },
   { q: 'When will my tickets arrive?', a: 'It depends on the event and seller. Some tickets arrive immediately; others closer to the event date. We\'ll keep you updated either way.' },
 ];
