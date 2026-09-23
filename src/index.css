@@ -596,7 +596,10 @@ img { max-width: 100%; }
   text-wrap: pretty;
 }
 .story-amount { font-weight: var(--w-semibold); font-size: 0.9em; }
-.story-body { margin: 0; font-size: 21px; line-height: 1.5; text-wrap: pretty; }
+/* The story runs to several paragraphs, so they sit closer to each other than
+   the 28px that separates the opening line, the story and the signature. */
+.story-body { display: flex; flex-direction: column; gap: 20px; }
+.story-body p { margin: 0; font-size: 21px; line-height: 1.5; text-wrap: pretty; }
 .story-body strong { font-weight: var(--w-semibold); }
 .story-sign { display: flex; align-items: center; gap: 14px; padding-top: 24px; border-top: var(--rule); }
 .story-photo { width: 56px; height: 56px; object-fit: cover; border-radius: var(--r-xs); box-shadow: 0 0 0 1px var(--border); display: block; }
@@ -835,7 +838,8 @@ img { max-width: 100%; }
   .split { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .story { gap: 24px; }
   .story-open { font-size: 26px; }
-  .story-body { font-size: 17px; }
+  .story-body { gap: 16px; }
+  .story-body p { font-size: 17px; }
   .story-sign { padding-top: 20px; gap: 12px; }
   .story-photo { width: 48px; height: 48px; }
   .story-name { font-size: 20px; }

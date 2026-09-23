@@ -8,17 +8,36 @@ export function WhyWeBuiltThis() {
         <h2 className="headline headline-sec">Why we built this</h2>
         <div className="story">
           <p className="story-open">
-            Maurice&apos;s sister told his nephew: &apos;If Knicks tickets drop under{' '}
+            Maurice&apos;s sister told his nephew: &apos;If Knicks finals tickets drop under{' '}
             <span className="t-mono story-amount">$500</span>, we&apos;ll go.&apos;
           </p>
-          <p className="story-body">
-            They refreshed for days. When the price finally dropped, they were already on the subway to the
-            watch party — heads down, phones out, frantically checking, unable to enjoy a single moment of
-            the buildup to the biggest Knicks game in years. She got one ticket. Last row. A bar stool in
-            the nosebleeds. They had the time of their lives anyway. But they shouldn&apos;t have had to
-            fight that hard to get there.{' '}
-            <strong>SeatSnags is built so the next family doesn&apos;t miss the moment.</strong>
-          </p>
+          <div className="story-body">
+            <p>
+              My nephew spent days refreshing ticket prices, hoping they&apos;d finally come down.
+              But the game was starting soon and tickets still were above mom&apos;s max price.
+              So they headed to the fan zone.
+            </p>
+            <p>
+              Nephew didn&apos;t give up. Even on the subway to the watch party, he was glued to his
+              phones, hoping to still make it to the game.
+            </p>
+            <p>
+              And he got one ticket. It ended up being in the last row. A bar stool in the nosebleeds.
+            </p>
+            <p>
+              But it didn&apos;t matter. He was at the Knicks Finals game. A memory he&apos;ll never forget.
+            </p>
+            <p>
+              But buying a ticket shouldn&apos;t take days of refreshing, second-guessing, and
+              scrambling at the last minute.
+            </p>
+            <p>
+              <strong>
+                That&apos;s why we built SeatSnags: so you can spend less time watching ticket prices
+                and more time creating moments you&apos;ll remember.
+              </strong>
+            </p>
+          </div>
           <div className="story-sign">
             <img src={mauriceImg} alt="Maurice" className="story-photo"/>
             <span className="story-name">Maurice</span>
