@@ -10,7 +10,7 @@ const FAQ_ITEMS = [
   { q: 'Will I always pay my maximum price?', a: 'No. Your max is a ceiling, not a price. When tickets come in under it, you\'re often charged less.' },
   { q: 'What happens when a match is found?', a: 'We secure the tickets, process your payment, and arrange delivery. You\'ll get a notification as soon as it\'s done.' },
   { q: 'What if no matching tickets are found?', a: 'Your bid expires and you\'re charged nothing.' },
-  { q: 'Can I use SeatSnags for sold-out events?', a: 'Yes — and sold-out events are often where SeatSnags works best. We monitor resale listings continuously, so if tickets surface at your price at any point, we\'ll catch them.' },
+  { q: 'Can I use SeatSnags for sold-out events?', a: 'Yes — and sold-out events are often where SeatSnags works best. We keep watching resale listings, so if tickets surface at your price at any point, we\'ll catch them.' },
   { q: 'Can I cancel a bid?', a: 'Yes. You can cancel any active bid before tickets are secured, and you won\'t be charged.' },
   { q: 'Is there a SeatSnags app?', a: 'Yes. SeatSnags installs straight from your browser, no App Store needed. Open app.seatsnags.com/install on your phone and it walks you through the two taps.' },
   { q: 'Do ticket prices really drop before an event?', a: 'Often, yes. Resale prices tend to slide as the event gets closer and sellers get nervous. Not always, though, and that\'s why you set a max: if prices never reach it, you pay nothing.' },
