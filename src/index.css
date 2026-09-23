@@ -203,6 +203,46 @@
   --d-fast: 120ms; --d-med: 240ms; --d-slow: 360ms;
 }
 
+/* ============================================================ */
+/* 4. TYPE OBJECTS                                               */
+/* ============================================================ */
+/* Ported from the Box Office design system so the landing page sets numbers
+   the way the app does. Every figure on this page is mono and tabular. */
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: 'tnum', 'zero';
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+/* The price object: an ink block with the figures knocked out to stock. The
+   padding, radius and raised currency are in em, so it is the same object at
+   every size and only `font-size` changes. */
+.t-price {
+  display: inline-flex;
+  align-items: flex-start;
+  font-family: var(--font-mono);
+  font-weight: var(--w-semibold);
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-feature-settings: 'tnum', 'zero';
+  letter-spacing: var(--tr-tight);
+  line-height: 1;
+  background: var(--fg-1);
+  color: var(--bg-elev-1);
+  padding: 0.22em 0.4em 0.18em 0.32em;
+  border-radius: 0.1em;
+  white-space: nowrap;
+}
+.t-price > .cur {
+  font-size: 0.55em;
+  font-weight: var(--w-medium);
+  margin-right: 0.12em;
+  margin-top: 0.05em;
+  letter-spacing: 0;
+}
+/* Green is reserved for an amount actually charged. */
+.t-price-brand { background: var(--primary); color: var(--on-primary); }
+
 /* =================================================================== */
 /* RESET + GLOBALS                                                      */
 /* =================================================================== */
@@ -213,6 +253,8 @@ body {
   background: var(--bg);
   color: var(--fg-1);
   font-family: var(--font-ui);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -222,8 +264,17 @@ body {
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
 /* =================================================================== */
-/* KEYFRAMES                                                            */
+/* KEYFRAMES — nothing loops. The stamp lands once, on mount.           */
 /* =================================================================== */
+
+/* The rotation comes from --stamp-rot rather than being baked in, because the
+   page stamps at two different angles and `animation-fill-mode: both` would
+   otherwise hold the keyframe's transform over any inline rotation. */
+@keyframes stamp-down {
+  from { transform: scale(1.7) rotate(var(--stamp-rot, -4deg)); opacity: 0; }
+  60%  { transform: scale(0.96) rotate(var(--stamp-rot, -4deg)); opacity: 1; }
+  to   { transform: scale(1) rotate(var(--stamp-rot, -4deg)); opacity: 1; }
+}
 
 
 /* =================================================================== */
@@ -271,4 +322,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   html { scroll-behavior: auto; }
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
   * { animation-duration: 0.001ms !important; }
+  /* The stamp still has to appear — it just arrives already landed. */
+  @keyframes stamp-down {
+    from, to { transform: rotate(var(--stamp-rot, -4deg)); opacity: 1; }
+  }
 }
