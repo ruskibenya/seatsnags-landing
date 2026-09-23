@@ -8,33 +8,34 @@ export function WhyWeBuiltThis() {
         <h2 className="headline headline-sec">Why we built this</h2>
         <div className="story">
           <p className="story-open">
-            Maurice&apos;s sister told his nephew: &apos;If Knicks finals tickets drop under{' '}
+            My sister told my nephew: &apos;If Knicks finals tickets drop under{' '}
             <span className="t-mono story-amount">$500</span>, we&apos;ll go.&apos;
           </p>
           <div className="story-body">
             <p>
               My nephew spent days refreshing ticket prices, hoping they&apos;d finally come down.
-              But the game was starting soon and tickets still were above mom&apos;s max price.
+              But the game was starting soon and tickets were still above mom&apos;s max price.
               So they headed to the fan zone.
             </p>
             <p>
               Nephew didn&apos;t give up. Even on the subway to the watch party, he was glued to his
-              phones, hoping to still make it to the game.
+              phone, hoping for a miracle.
             </p>
             <p>
-              And he got one ticket. It ended up being in the last row. A bar stool in the nosebleeds.
+              And then it happened! They got tickets. They ended up being in the last row.
+              Bar stools in the nosebleeds.
             </p>
             <p>
               But it didn&apos;t matter. He was at the Knicks Finals game. A memory he&apos;ll never forget.
             </p>
             <p>
-              But buying a ticket shouldn&apos;t take days of refreshing, second-guessing, and
+              Buying a ticket shouldn&apos;t take days of refreshing, second-guessing, and
               scrambling at the last minute.
             </p>
             <p>
               <strong>
                 That&apos;s why we built SeatSnags: so you can spend less time watching ticket prices
-                and more time creating moments you&apos;ll remember.
+                and more time creating unforgettable moments.
               </strong>
             </p>
           </div>
