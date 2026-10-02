@@ -1,5 +1,5 @@
 import { Section } from '../lib/ui.jsx';
-import mauriceImg from '../assets/maurice.png';
+import mauriceImg from '../assets/maurice.webp';
 
 export function WhyWeBuiltThis() {
   return (
@@ -40,7 +40,7 @@ export function WhyWeBuiltThis() {
             </p>
           </div>
           <div className="story-sign">
-            <img src={mauriceImg} alt="Maurice" className="story-photo"/>
+            <img src={mauriceImg} alt="Maurice" className="story-photo" width={56} height={56} loading="lazy" decoding="async"/>
             <span className="story-name">Maurice</span>
           </div>
         </div>
