@@ -19,6 +19,9 @@ const FAQ_ITEMS = [
   { q: 'Are the tickets legitimate?', a: 'Yes. Every ticket comes from licensed professional brokers, the same inventory network that supplies major marketplaces like StubHub, Vivid Seats, and SeatGeek. And every order is backed by our Buyer Guarantee.' },
   { q: 'What happens if my event is canceled or postponed?', a: 'If it\'s postponed, your tickets usually stay valid for the new date. If it\'s canceled, we pass along the refund or replacement our ticketing partner provides.' },
   { q: 'How will I receive my tickets?', a: 'Electronically, through whatever transfer platform the seller uses — typically Ticketmaster, AXS, or a similar system.' },
+  // Same answer as the app's Help page (frontend #234). SeatSnags is the seller
+  // of record (Terms §1), so never "straight from the seller".
+  { q: 'Whose name are the tickets in, and can I give one to a friend?', a: 'Yours. Once we snag, our ticketing partner sends them to the email on your SeatSnags account, in the name on your profile. If they\'re mobile tickets in a team or venue app, sign in there with that same email to find them. To pass one to a friend, transfer it in that app, however it allows.' },
   { q: 'When will my tickets arrive?', a: 'It depends on the event and seller. Some tickets arrive immediately; others closer to the event date. We\'ll keep you updated either way.' },
 ];
 
