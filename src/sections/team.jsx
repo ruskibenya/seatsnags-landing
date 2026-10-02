@@ -1,7 +1,7 @@
 import { Section, Perforation } from '../lib/ui.jsx';
-import mauriceImg from '../assets/maurice.png';
-import benjaminImg from '../assets/benjamin.jpg';
-import ikkiImg from '../assets/ikki.jpg';
+import mauriceImg from '../assets/maurice.webp';
+import benjaminImg from '../assets/benjamin.webp';
+import ikkiImg from '../assets/ikki.webp';
 
 const TEAM = [
   { name: 'Maurice', role: 'Business Guy', image: mauriceImg },
@@ -19,8 +19,10 @@ export function Team() {
           <div key={member.name} className="team-card">
             <img
               src={member.image}
-              alt={member.name}
+              alt={`${member.name}, ${member.role}`}
               className="team-photo"
+              loading="lazy"
+              decoding="async"
               style={member.position ? { objectPosition: member.position } : undefined}
             />
             <Perforation/>
