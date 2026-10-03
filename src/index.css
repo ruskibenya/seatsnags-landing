@@ -1,3 +1,11 @@
+/* Self-hosted variable fonts (Fontsource builds of the same files Google
+   serves). Each package's CSS declares one @font-face per script subset
+   with a unicode-range, so an English page only downloads the latin file.
+   Vite copies the woff2 files into dist/assets with the rest. */
+@import '@fontsource-variable/oswald/wght.css';
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+
 
 /* ============================================================ */
 /* 1. RAW TOKENS                                                 */
@@ -154,9 +162,9 @@
   /* Oswald is the box-office face: condensed, uppercase, built for a marquee.
      The narrow-grotesque fallbacks matter because the display face carries
      the brand and a wide substitute reads as a different product. */
-  --font-display: 'Oswald', 'Alternate Gothic', 'Arial Narrow', ui-sans-serif, sans-serif;
-  --font-ui:      'Geist', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
-  --font-mono:    'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'Oswald Variable', 'Alternate Gothic', 'Arial Narrow', ui-sans-serif, sans-serif;
+  --font-ui:      'Geist Variable', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  --font-mono:    'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --t-display-2xl: 4rem;
   --t-display-xl:  3rem;
