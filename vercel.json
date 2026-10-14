@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/ig",
+      "destination": "/?utm_source=social&utm_medium=bio&utm_campaign=instagram&utm_content=bio",
+      "permanent": false
+    }
+  ]
+}
