@@ -1,8 +1,8 @@
 import { Button } from '../lib/ui.jsx';
-import { useSignupUrl } from '../lib/links.js';
+import { useAppUrl, DISCOVER_URL } from '../lib/links.js';
 
 export function ClosingCta() {
-  const signupUrl = useSignupUrl();
+  const discoverUrl = useAppUrl(DISCOVER_URL);
   return (
     <section className="cta">
       <h2 className="headline headline-close">Set your price.</h2>
@@ -10,7 +10,7 @@ export function ClosingCta() {
         Pick an event, set your max and get on with your week. We&apos;ll let you know when you&apos;re in.
       </p>
       <div className="cta-actions">
-        <Button href={signupUrl} size="lg" className="cta-btn">Set your price</Button>
+        <Button href={discoverUrl} size="lg" className="cta-btn">Set your price</Button>
         <div className="cta-note">Works in your browser. Add it to your home screen in two taps.</div>
       </div>
     </section>

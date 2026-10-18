@@ -1,5 +1,5 @@
 import { Button, Stamp, Price, Perforation, Icon } from '../lib/ui.jsx';
-import { useSignupUrl } from '../lib/links.js';
+import { useAppUrl, DISCOVER_URL } from '../lib/links.js';
 
 function LockScreen() {
   return (
@@ -63,11 +63,11 @@ function WinReceipt() {
 }
 
 export function Hero() {
-  const signupUrl = useSignupUrl();
+  const discoverUrl = useAppUrl(DISCOVER_URL);
   return (
     <section id="top" className="hero">
       <div className="hero-copy">
-        <Stamp rotate={-3} size="hero">Now live in New York</Stamp>
+        <Stamp rotate={-3} size="hero">Live across the US. Starting in New York.</Stamp>
         <h1 className="headline headline-hero">
           Stop refreshing.<br/><span className="line-2">Start snagging.</span>
         </h1>
@@ -77,7 +77,7 @@ export function Hero() {
           SeatSnags watches the resale market around the clock and buys the moment tickets fit your max.
         </p>
         <div className="hero-actions">
-          <Button href={signupUrl} size="lg" className="hero-cta">Set your price</Button>
+          <Button href={discoverUrl} size="lg" className="hero-cta">Set your price</Button>
           <a href="#how" className="hero-how">See how it works</a>
           <span className="hero-note">No snag, no charge.</span>
         </div>
